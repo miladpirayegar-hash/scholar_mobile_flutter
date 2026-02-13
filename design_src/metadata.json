@@ -1,0 +1,7 @@
+{
+  "name": "Academic Recorder & Insights Pro",
+  "description": "Professional student recording app featuring high-fidelity audio capture, AI-powered transcription, and automated generation of structured learning materials including flashcards, timelines, and action items.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

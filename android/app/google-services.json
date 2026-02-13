@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1034590471347",
+    "project_id": "scholar-mobile-5a3b7",
+    "storage_bucket": "scholar-mobile-5a3b7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034590471347:android:e8454a835db693be03dcc6",
+        "android_client_info": {
+          "package_name": "com.example.scholar_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034590471347-8fto0b4647h70gen7khc014e487qbafh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.scholar_mobile",
+            "certificate_hash": "59424990a2a98da807db6bab6e4a3205c4b95cf9"
+          }
+        },
+        {
+          "client_id": "1034590471347-f9quspqp3vglfgiq7itihngv5s8412fk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.scholar_mobile",
+            "certificate_hash": "99fce0c1ac40036bff182b32f6e81a8da660bd22"
+          }
+        },
+        {
+          "client_id": "1034590471347-2bch2subbih1n7d2fefqh63d2cmecmj6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxsXzmjEbpgmwxuycAZ0eWBIxyAgFCKTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034590471347-2bch2subbih1n7d2fefqh63d2cmecmj6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
