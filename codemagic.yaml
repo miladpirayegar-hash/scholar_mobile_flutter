@@ -8,8 +8,7 @@ workflows:
       flutter: stable
       xcode: latest
       vars:
-        APP_ID: com.yourcompany.scholarmobile
-        BUNDLE_ID: com.yourcompany.scholarmobile
+        BUNDLE_ID: com.miladpirayegarhash.scholar
       ios_signing:
         distribution_type: app_store
         bundle_identifier: $BUNDLE_ID
@@ -17,27 +16,12 @@ workflows:
     integrations:
       app_store_connect: codemagic_app_store_connect
 
-    triggering:
-      events:
-        - push
-      branch_patterns:
-        - pattern: main
-          include: true
-          source: true
-      cancel_previous_builds: true
-
     scripts:
       - name: Flutter pub get
-        script: |
-          flutter pub get
-
-      - name: Set iOS bundle id in project
-        script: |
-          sed -i '' "s/com.example.scholarMobile/$BUNDLE_ID/g" ios/Runner.xcodeproj/project.pbxproj
+        script: flutter pub get
 
       - name: Build IPA
-        script: |
-          flutter build ipa --release
+        script: flutter build ipa --release
 
     artifacts:
       - build/ios/ipa/*.ipa
