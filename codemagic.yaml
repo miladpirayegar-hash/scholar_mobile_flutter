@@ -34,7 +34,14 @@ workflows:
         script: xcode-project use-profiles
 
       - name: Build IPA
-        script: flutter build ipa --release --export-options-plist=/Users/builder/export_options.plist
+        script: |
+          flutter clean
+          rm -rf ios/Pods ios/Podfile.lock
+          cd ios
+          pod repo update
+          pod install
+          cd ..
+          flutter build ipa --release --export-options-plist=/Users/builder/export_options.plist
 
     artifacts:
       - build/ios/ipa/*.ipa
