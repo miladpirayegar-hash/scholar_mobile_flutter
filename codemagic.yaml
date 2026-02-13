@@ -20,6 +20,10 @@ workflows:
       - name: Flutter pub get
         script: flutter pub get
 
+      - name: Set iOS bundle id
+        script: |
+          sed -i '' 's/com.example.scholarMobile/com.miladpirayegarhash.scholar/g' ios/Runner.xcodeproj/project.pbxproj
+
       - name: Build IPA
         script: flutter build ipa --release
 
