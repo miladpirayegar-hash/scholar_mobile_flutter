@@ -1,3 +1,4 @@
+# codemagic.yaml
 workflows:
   ios-release:
     name: iOS Release (Flutter)
