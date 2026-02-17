@@ -30,6 +30,14 @@ workflows:
             exit 1
           fi
           echo "$FIREBASE_IOS_PLIST_B64" | base64 --decode > ios/Runner/GoogleService-Info.plist
+          if grep -q "REPLACE_IN_CI" ios/Runner/GoogleService-Info.plist; then
+            echo "GoogleService-Info.plist is placeholder, not real Firebase config."
+            exit 1
+          fi
+          if ! /usr/libexec/PlistBuddy -c "Print:BUNDLE_ID" ios/Runner/GoogleService-Info.plist | grep -qx "$BUNDLE_ID"; then
+            echo "Firebase plist BUNDLE_ID does not match $BUNDLE_ID."
+            exit 1
+          fi
 
       - name: Set iOS bundle id
         script: |
