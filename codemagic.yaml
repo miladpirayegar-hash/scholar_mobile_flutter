@@ -21,6 +21,14 @@ workflows:
       - name: Flutter pub get
         script: flutter pub get
 
+      - name: Write Firebase iOS plist
+        script: |
+          if [ -z "$FIREBASE_IOS_PLIST_B64" ]; then
+            echo "Missing FIREBASE_IOS_PLIST_B64 env var."
+            exit 1
+          fi
+          echo "$FIREBASE_IOS_PLIST_B64" | base64 --decode > ios/Runner/GoogleService-Info.plist
+
       - name: Set iOS bundle id
         script: |
           sed -i '' 's/com.example.scholarMobile/com.miladpirayegarhash.scholar/g' ios/Runner.xcodeproj/project.pbxproj
