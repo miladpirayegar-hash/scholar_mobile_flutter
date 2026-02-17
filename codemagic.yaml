@@ -25,11 +25,15 @@ workflows:
 
       - name: Write Firebase iOS plist
         script: |
-          if [ -z "$FIREBASE_IOS_PLIST_B64" ]; then
-            echo "Missing FIREBASE_IOS_PLIST_B64 env var."
+          if [ -n "$FIREBASE_IOS_PLIST_B64" ]; then
+            echo "$FIREBASE_IOS_PLIST_B64" | base64 --decode > ios/Runner/GoogleService-Info.plist
+            echo "Loaded Firebase iOS plist from FIREBASE_IOS_PLIST_B64."
+          elif [ -f ios/Runner/GoogleService-Info.plist ]; then
+            echo "Using Firebase iOS plist committed in repository."
+          else
+            echo "Missing Firebase iOS config. Provide FIREBASE_IOS_PLIST_B64 or commit ios/Runner/GoogleService-Info.plist."
             exit 1
           fi
-          echo "$FIREBASE_IOS_PLIST_B64" | base64 --decode > ios/Runner/GoogleService-Info.plist
           if grep -q "REPLACE_IN_CI" ios/Runner/GoogleService-Info.plist; then
             echo "GoogleService-Info.plist is placeholder, not real Firebase config."
             exit 1
